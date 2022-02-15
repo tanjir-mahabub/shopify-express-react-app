@@ -1,17 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import Nav from './components/Nav'
+import Home from "./components/Home";
+import About from './components/About'
+import Shop from './components/Shop'
+import { Routes, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-          Welcome to React Shopify App 
-      </header>
-    </div>
+const App = () => {
+  return (  
+      <div className="App">
+        <Nav />
+        <Routes>
+          <Route path="/" element={ <Home /> }/>
+          <Route path='/about' element={ <About />} />
+          <Route path='/shop' element={<Shop />} />
+        </Routes>
+      </div>    
   );
 }
 

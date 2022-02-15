@@ -37,6 +37,10 @@ app.get('/', async (req, res) => {
     }
 });
 
+// app.get('/about', (req, res) => {
+//     res.send('About Page')
+// })
+
 app.get('/auth', async (req, res) => {
     const authRoute = await Shopify.Auth.beginAuth(
         req,
