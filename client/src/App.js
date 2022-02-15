@@ -7,11 +7,11 @@ import { Routes, Route } from "react-router-dom";
 const App = () => {
   return (  
       <div className="App">
-        <Nav />
+        <Nav /> 
         <Routes>
           <Route path="/" element={ <Home /> }/>
           <Route path='/about' element={ <About />} />
-          <Route path='/shop' element={<Shop />} />
+          <Route path='/shop' element={<Shop />} /> 
         </Routes>
       </div>    
   );
