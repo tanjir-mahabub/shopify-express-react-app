@@ -26,11 +26,11 @@ Shopify.Context.initialize({
 
 const app = express();
 
-app.use(express.static(path.resolve(__dirname, './client/build')));
 
 app.get('/', async (req, res) => {
     if (typeof shops[req.query.shop] !== 'undefined') {
-        // res.send('HEllo World!');
+        //res.send('HEllo World!');
+        app.use(express.static(path.resolve(__dirname, './client/build')));
         res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
     } else {
         res.redirect(`/auth?shop=${req.query.shop}`);
@@ -45,6 +45,7 @@ app.get('/auth', async (req, res) => {
         '/auth/callback',
         false,
     )
+    console.log(authRoute)
     res.redirect(authRoute);
 });
 
@@ -56,11 +57,11 @@ app.get('/auth/callback', async (req, res) => {
         req.query
     );
 
-    //console.log(shopSession);
+    console.log(shopSession);
 
     shops[shopSession.shop] = shopSession;
 
-    res.redirect(`https://${shopSession.shop}/admin/apps/node-app-oauth`);
+    res.redirect(`https://${shopSession.shop}/admin/apps/node-app-113`);
 });
 
 
